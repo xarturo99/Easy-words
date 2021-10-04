@@ -7,14 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./answers.component.css']
 })
 export class AnswersComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   @Input() title: string;
-  @Input() words: WordType[];
+  words: WordType[] = [];
 
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input() set word(word: WordType) {
+    if(word)
+    {
+      this.words.push(word);
+    }
   }
 
 }
